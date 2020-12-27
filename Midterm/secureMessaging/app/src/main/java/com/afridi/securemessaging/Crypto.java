@@ -4,7 +4,7 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 
 public class Crypto {
-    public static String encrypt(String strClearText,String strKey) throws Exception{
+    public static String encrypt(String strClearText,String strKey) throws Exception {
         String strData="";
 
         try {
@@ -20,6 +20,8 @@ public class Crypto {
         }
         return strData;
     }
+
+
     public static String decrypt(String strEncrypted,String strKey) throws Exception{
         String strData="";
 
