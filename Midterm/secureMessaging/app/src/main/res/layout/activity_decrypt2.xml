@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DecryptActivity">
+
+    <TextView
+        android:id="@+id/textViewDecrypt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="Decrypt"
+        android:textColor="#09B1C6"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.543"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.143" />
+
+    <EditText
+        android:id="@+id/encryptedSMS"
+        android:layout_width="308dp"
+        android:layout_height="146dp"
+        android:layout_marginTop="64dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:text="Enter encrypted SMS to Decrypt"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/textViewDecrypt"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="@+id/textViewDecrypt"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDecrypt" />
+
+    <TextView
+        android:id="@+id/decryptedSMS"
+        android:layout_width="328dp"
+        android:layout_height="176dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintEnd_toEndOf="@+id/buttonDecrypt"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="@+id/buttonDecrypt"
+        app:layout_constraintTop_toBottomOf="@+id/buttonDecrypt" />
+
+    <Button
+        android:id="@+id/buttonDecrypt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="Decrypt"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/encryptedSMS"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="@+id/encryptedSMS"
+        app:layout_constraintTop_toBottomOf="@+id/encryptedSMS" />
+</androidx.constraintlayout.widget.ConstraintLayout>
