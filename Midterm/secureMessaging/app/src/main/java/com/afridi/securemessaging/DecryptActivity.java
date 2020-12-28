@@ -22,7 +22,6 @@ public class DecryptActivity extends AppCompatActivity {
         Button btnEncryption = (Button)findViewById(R.id.encryptButton);
         TextView sms = (TextView)findViewById(R.id.tvDecryptedSMS);
 
-
         btnDecryption.setOnClickListener(v -> {
             String cypheredSms = EncryptedSms.getText().toString();
 
@@ -30,19 +29,22 @@ public class DecryptActivity extends AppCompatActivity {
                 btnDecryption.setError("");
                 return;
             }
-            
-            String[] str = cypheredSms.split(" ",2);
-            String pKey =str[0];
-            String eSms = str[1];
+            String pKey = null;
+            String eSms = null;
+
+            String[] str = cypheredSms.split(" ", 2);
+            pKey = str[0];
+            eSms = str[1];
 
             try {
                 String actualSms = crypto.decrypt(eSms, Integer.parseInt(pKey));
-                sms.setText(actualSms );
+                sms.setText(actualSms);
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
         });
+
         btnEncryption.setOnClickListener(v -> {
             Intent intent = new Intent(DecryptActivity.this, MainActivity.class);
             startActivity(intent);
