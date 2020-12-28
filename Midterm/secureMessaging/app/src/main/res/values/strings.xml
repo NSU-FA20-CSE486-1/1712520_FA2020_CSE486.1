@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">secureMessaging</string>
+    <string name="key">Key</string>
 </resources>

@@ -5,54 +5,59 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-
-import static com.afridi.securemessaging.Crypto.encrypt;
-
 public class MainActivity extends AppCompatActivity {
+    Crypto crypto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btnSend = findViewById(R.id.sendButton);
-        Button btnDecrypt = findViewById(R.id.decryptButton);
+        Button btnSend = (Button)findViewById(R.id.sendButton);
+        Button btnDecrypt = (Button)findViewById(R.id.decryptButton);
 
-        EditText phoneNum = findViewById(R.id.etPhoneNumber);
-        EditText privetKey = findViewById(R.id.etPrivateKey);
-        EditText messageBody = findViewById(R.id.etMessage);
+        EditText phoneNum = (EditText)findViewById(R.id.etPhoneNumber);
+        EditText privateKey = (EditText)findViewById(R.id.etPrivateKey);
+        EditText messageBody = (EditText)findViewById(R.id.etMessage);
 
-        Crypto crypto = new Crypto();
+        crypto = new Crypto();
 
-        btnDecrypt.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, DecryptActivity.class);
-            startActivity(intent);
-        });
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String Number = phoneNum.getText().toString();
+                String sms = messageBody.getText().toString();
+                String key = privateKey.getText().toString();
 
-        btnSend.setOnClickListener(v -> {
-            String Number = phoneNum.getText().toString();
-            String sms = messageBody.getText().toString();
-            String key = privetKey.getText().toString();
+                if (Number.isEmpty() || sms.isEmpty() || key.isEmpty()) {
+                    btnSend.setError("");
+                    return;
+                }
 
-            String cryptoSms = null;
-            try {
-                cryptoSms = encrypt(sms, key);
-            } catch (Exception e) {
-                e.printStackTrace();
+                String cryptoSms = null;
+
+                cryptoSms = crypto.encrypt(sms, Integer.parseInt(key));
+
+                try{
+                    Intent intent = new Intent(Intent.ACTION_SENDTO);
+                    intent.setData(Uri.parse("smsto:"+Number));
+                    intent.putExtra("sms_body", key+" "+cryptoSms);
+                    startActivity(intent);
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
-            try {
-                Intent intent = new Intent(Intent.ACTION_SENDTO);
-                intent.setData(Uri.parse("smsto:"+Number));
-                intent.putExtra("sms_body",key +" "+ cryptoSms);
+        });
+        btnDecrypt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, DecryptActivity.class);
                 startActivity(intent);
-            }catch (Exception e) {
-                System.out.println("Something went wrong.");
             }
         });
-
     }
-
 }
