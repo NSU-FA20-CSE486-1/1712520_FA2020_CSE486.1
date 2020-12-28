@@ -38,9 +38,16 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
+                int keyValue = 0;
+                for (char c : key.toCharArray()) {
+                    if (Character.isDigit(c)) {
+                        keyValue += Character.getNumericValue(c);
+                    }
+                }
+
                 String cryptoSms = null;
 
-                cryptoSms = crypto.encrypt(sms, Integer.parseInt(key));
+                cryptoSms = crypto.encrypt(sms, keyValue);
 
                 try{
                     Intent intent = new Intent(Intent.ACTION_SENDTO);
@@ -59,5 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
 }

@@ -36,8 +36,14 @@ public class DecryptActivity extends AppCompatActivity {
             pKey = str[0];
             eSms = str[1];
 
+            int keyValue = 0;
+            for (char c : pKey.toCharArray()) {
+                if (Character.isDigit(c)) {
+                    keyValue += Character.getNumericValue(c);
+                }
+            }
             try {
-                String actualSms = crypto.decrypt(eSms, Integer.parseInt(pKey));
+                String actualSms = crypto.decrypt(eSms, keyValue);
                 sms.setText(actualSms);
 
             } catch (Exception e) {
