@@ -1,34 +1,34 @@
 package com.afridi.securemessaging;
 
 public class Crypto {
-    public static final String str = "abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+<>?~' ";
+    public static final String str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+?/.,><[]{}:; ";
 
-    public String encrypt(String plaint, int key) {
-        plaint = plaint.toLowerCase();
-        StringBuilder ciphert = new StringBuilder();
+    public String encrypt(String plainText, int key) {
+        StringBuilder cipherText = new StringBuilder();
 
-        for (int i = 0; i < plaint.length(); i++) {
-            int charpos = str.indexOf(plaint.charAt(i));
-            int keyval = (charpos + key) % 54;
-            char replaceval = str.charAt(keyval);
-            ciphert.append(replaceval) ;
+        for (int i = 0; i < plainText.length(); i++) {
+            int charPos = str.indexOf(plainText.charAt(i));
+            int keyValue = (charPos + key) % str.length();
+            char replaceValue = str.charAt(keyValue);
+            cipherText.append(replaceValue) ;
         }
-        return ciphert.toString();
+        return cipherText.toString();
     }
 
-    public String decrypt(String ciphert, int key) {
-        ciphert = ciphert.toLowerCase();
-        StringBuilder plaint = new StringBuilder();
+    public String decrypt(String cipherText, int key) {
 
-        for (int i = 0; i < ciphert.length(); i++) {
-            int charpos = str.indexOf(ciphert.charAt(i));
-            int keyval = (charpos - key) % 54;
-            if (keyval < 0) {
-                keyval = str.length() + keyval;
+        StringBuilder plainText = new StringBuilder();
+
+        for (int i = 0; i < cipherText.length(); i++) {
+            int charPos = str.indexOf(cipherText.charAt(i));
+            int keyValue = (charPos - key) % str.length();
+
+            if (keyValue < 0) {
+                keyValue = str.length() + keyValue;
             }
-            char replaceval = str.charAt(keyval);
-            plaint.append(replaceval);
+            char replaceValue = str.charAt(keyValue);
+            plainText.append(replaceValue);
         }
-        return plaint.toString();
+        return plainText.toString();
     }
 }
