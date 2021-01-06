@@ -1,4 +1,4 @@
-package com.example.test;
+package com.afridi.BanglaDictionary;
 
 import androidx.appcompat.app.AppCompatActivity;
 
