@@ -7,6 +7,9 @@ Folder Structure:
               |------------- Lab
               
               |------------- Theory
+              
+              |------------- Midterm
+              
 
               
   |-------- Android Project
