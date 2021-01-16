@@ -4,15 +4,85 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".AddWordActivity">
 
     <TextView
+        android:id="@+id/tvBanglaDictionary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/rounded_corner"
+        android:fontFamily="cursive"
+        android:text="@string/bangla_dictionary"
+        android:textColor="@color/design_default_color_on_primary"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.449"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.076" />
+
+    <EditText
+        android:id="@+id/etBanglaWord"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:ems="10"
+        android:fontFamily="cursive"
+        android:hint="@string/bangla_translation"
+        android:inputType="textPersonName"
+        android:paddingTop="@dimen/cardview_compat_inset_shadow"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSave"
+        app:layout_constraintEnd_toEndOf="@+id/etEnglishWord"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="@+id/etEnglishWord"
+        app:layout_constraintTop_toBottomOf="@+id/etEnglishWord" />
+
+    <EditText
+        android:id="@+id/etEnglishWord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:fontFamily="cursive"
+        android:hint="@string/english_word"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/etBanglaWord"
+        app:layout_constraintEnd_toEndOf="@+id/tvBanglaDictionary"
+        app:layout_constraintHorizontal_bias="0.411"
+        app:layout_constraintStart_toStartOf="@+id/tvBanglaDictionary"
+        app:layout_constraintTop_toBottomOf="@+id/tvBanglaDictionary" />
+
+    <Button
+        android:id="@+id/buttonSave"
+        style="@android:style/Widget.Material.Button.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        android:fontFamily="cursive"
+        android:textStyle="bold"
+        android:backgroundTint="@color/cardview_dark_background"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonList"
+        app:layout_constraintEnd_toEndOf="@+id/etBanglaWord"
+        app:layout_constraintStart_toEndOf="@+id/buttonList"
+        app:layout_constraintTop_toTopOf="@+id/buttonList" />
+
+    <Button
+        android:id="@+id/buttonList"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="58dp"
+        android:text="@string/btn_word_list"
+        android:textStyle="bold"
+        android:fontFamily="cursive"
+        android:backgroundTint="@color/cardview_dark_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonSave"
+        app:layout_constraintStart_toStartOf="@+id/etBanglaWord"
+        app:layout_constraintTop_toBottomOf="@+id/etBanglaWord"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
