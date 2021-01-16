@@ -1,11 +1,3 @@
 <resources>
     <string name="app_name">Bangla Dictionary</string>
-    <string name="btn_word_list">Word List</string>
-    <string name="bangla_dictionary">Bangla Dictionary</string>
-    <string name="bangla_translation">Bangla Translation</string>
-    <string name="english_word">English Word</string>
-    <string name="save">Save</string>
-    <string name="word_list">Word List</string>
-    <string name="words">Words</string>
-
 </resources>
