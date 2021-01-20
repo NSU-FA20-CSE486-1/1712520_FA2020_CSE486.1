@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HomeFood">
-        <activity android:name=".Authentication"></activity>
+        <activity android:name=".Registration"></activity>
+        <activity android:name=".Authentication" />
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
