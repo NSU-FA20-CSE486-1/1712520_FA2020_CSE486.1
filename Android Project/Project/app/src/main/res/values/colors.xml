@@ -15,5 +15,7 @@
     <color name="teal_light">#FF8FD0CA</color>
     <color name="teal_dark">#FF6BACA6</color>
 
+    <color name="colorPrimary">#bc7362</color>
+    <color name="colorSecondary">#5B5B5B</color>
 
 </resources>
