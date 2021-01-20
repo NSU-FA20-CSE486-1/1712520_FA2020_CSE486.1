@@ -9,10 +9,10 @@
     <color name="white">#FFFFFFFF</color>
 
 
-    <color name="orange_light">#FFFEE7AA</color>
+    <color name="orange_light">#bc7362</color>
     <color name="orange_dark">#FFFFCB65</color>
 
-    <color name="teal_light">#FF8FD0CA</color>
+    <color name="teal_light">#5B5B5B</color>
     <color name="teal_dark">#FF6BACA6</color>
 
     <color name="colorPrimary">#bc7362</color>
