@@ -1,8 +1,10 @@
-package com.afridi.homefood;
+package com.afridi.homefood.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.afridi.homefood.R;
 
 public class Registration extends AppCompatActivity {
 

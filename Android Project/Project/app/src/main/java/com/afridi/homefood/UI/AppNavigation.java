@@ -1,14 +1,16 @@
-package com.afridi.homefood;
+package com.afridi.homefood.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class EditProfile extends AppCompatActivity {
+import com.afridi.homefood.R;
+
+public class AppNavigation extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_profile);
+        setContentView(R.layout.activity_app_navigation);
     }
 }

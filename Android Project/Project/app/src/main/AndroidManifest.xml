@@ -11,10 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HomeFood">
-        <activity android:name=".EditProfile"></activity>
-        <activity android:name=".Registration" />
-        <activity android:name=".Authentication" />
-        <activity android:name=".SplashScreen">
+        <activity android:name=".UI.AppNavigation"></activity>
+        <activity android:name=".UI.EditProfile" />
+        <activity android:name=".UI.Registration" />
+        <activity android:name=".UI.Authentication" />
+        <activity android:name=".UI.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
